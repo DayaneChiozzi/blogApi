@@ -17,7 +17,20 @@ const getUsersAll = async (req, res) => {
     const resultUsers = await userService.getUsersAll();
     return res.status(200).json(resultUsers);
   } catch (error) {
-    console.log(error);
+    console.error(error);
+  }
+};
+
+const getUserId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const resultUserId = await userService.getUserId(id);
+    if (!resultUserId) {
+      return res.status(404).json({ message: 'User does not exist' });
+    }
+    return res.status(200).json(resultUserId);
+  } catch (error) {
+    console.error(error);
   }
 };
 
@@ -37,4 +50,4 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { create, getUsersAll, login };
+module.exports = { create, getUsersAll, login, getUserId };

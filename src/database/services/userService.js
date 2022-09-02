@@ -8,8 +8,20 @@ const create = async (user) => {
 
 const getUsersAll = async () => {
   const resultUsers = await User.findAll({ attributes: ['id', 'displayName', 'email', 'image'] });
-  // console.log('SERVICE:', resultUsers);
   return resultUsers;
+};
+
+const getUserId = async (id) => {
+  const resultUserId = await User.findByPk(id);
+  if (resultUserId) {
+    return {
+      id: resultUserId.dataValues.id,
+      displayName: resultUserId.dataValues.displayName,
+      email: resultUserId.dataValues.email,
+      image: resultUserId.dataValues.image,
+    };
+  }
+  return false;
 };
 
 const login = async (email) => {
@@ -20,4 +32,4 @@ const login = async (email) => {
   return true;
 };
 
-module.exports = { create, getUsersAll, login };
+module.exports = { create, getUsersAll, login, getUserId };

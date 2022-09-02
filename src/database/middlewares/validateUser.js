@@ -45,4 +45,9 @@ async function verifyEmail(req, res, next) {
   next();
 }
 
-module.exports = { displayNameValidate, emailValidate, passwordValidate, verifyEmail };
+module.exports = {
+  displayNameValidate,
+  emailValidate,
+  passwordValidate,
+  verifyEmail,
+};
