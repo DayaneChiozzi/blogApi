@@ -13,12 +13,14 @@ const generateToken = async (info) => {
 };
 
 const validateToken = async (token) => {
-  try {
-    const decode = jwt.verify(token, secret);
-    return decode;
-  } catch (error) {
-    throw new Error('Token Invalido');
-  }
+  const decode = jwt.verify(token, secret);
+  console.log('DECODE', decode);
+  return decode;
+  // try {
+
+  // } catch (error) {
+  //   throw new Error('Token Invalido');
+  // }
 };
 
 module.exports = { generateToken, validateToken };

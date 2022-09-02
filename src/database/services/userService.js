@@ -7,7 +7,8 @@ const create = async (user) => {
 };
 
 const getUsersAll = async () => {
-  const resultUsers = await User.findAll();
+  const resultUsers = await User.findAll({ attributes: ['id', 'displayName', 'email', 'image'] });
+  // console.log('SERVICE:', resultUsers);
   return resultUsers;
 };
 

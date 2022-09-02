@@ -12,7 +12,7 @@ const create = async (req, res) => {
   }
 };
 
-const getUsersAll = async (_req, res) => {
+const getUsersAll = async (req, res) => {
   try {
     const resultUsers = await userService.getUsersAll();
     return res.status(200).json(resultUsers);
