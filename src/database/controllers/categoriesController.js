@@ -10,4 +10,14 @@ const create = async (req, res) => {
   }
 };
 
-module.exports = { create };
+const getAll = async (req, res) => {
+  const { id, name } = req.body;
+  try {
+    const resultCategories = await categoriesService.getAll({ id, name });
+    return res.status(200).json(resultCategories);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+module.exports = { create, getAll };
