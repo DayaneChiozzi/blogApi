@@ -10,7 +10,7 @@ const create = async (req, res) => {
   }
 };
 
-const getAll = async (req, res) => {
+const getAllCategory = async (req, res) => {
   const { id, name } = req.body;
   try {
     const resultCategories = await categoriesService.getAll({ id, name });
@@ -20,4 +20,4 @@ const getAll = async (req, res) => {
   }
 };
 
-module.exports = { create, getAll };
+module.exports = { create, getAllCategory };
